@@ -1,27 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddProduitComponent } from './add-produit/add-produit.component';
+import { AddJoueurComponent } from './add-joueur/add-joueur.component';  // Updated component name
 import { ForbiddenComponent } from './forbidden/forbidden.component';
-import { ListeCategoriesComponent } from './liste-categories/liste-categories.component';
+import { ListeJoueursComponent } from './liste-equipes/liste-equipes.component';  // Updated component name
 import { LoginComponent } from './login/login.component';
-import { ProduitGuard } from './produit.guard';
-import { ProduitsComponent } from './produits/produits.component';
-import { RechercheParCategorieComponent } from './recherche-par-categorie/recherche-par-categorie.component';
+import { JoueurGuard } from './joueur.guard';  // Updated guard name
+import { JoueursComponent } from './joueur/joueur.component';  // Updated component name
+import { RechercheParJoueurComponent } from './recherche-par-equipe/recherche-par-equipe.component';  // Updated component name
 import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.component';
-import { UpdateProduitComponent } from './update-produit/update-produit.component';
-
-
+import { UpdateJoueurComponent } from './update-joueur/update-joueur.component';  // Updated component name
 
 const routes: Routes = [
-  {path: "produits", component : ProduitsComponent},
-  {path: "add-produit", component : AddProduitComponent, canActivate:[ProduitGuard]},
-  {path: "updateProduit/:id", component: UpdateProduitComponent},
-  {path: "rechercheParCategorie", component : RechercheParCategorieComponent},
-  {path: "rechercheParNom", component : RechercheParNomComponent},
-  {path: "listeCategories", component : ListeCategoriesComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'app-forbidden', component: ForbiddenComponent},
-  {path: "", redirectTo: "produits", pathMatch: "full" }
+  { path: "joueurs", component: JoueursComponent },  // Updated route path and component
+  { path: "add-joueur", component: AddJoueurComponent, canActivate: [JoueurGuard] },  // Updated route path, component, and guard
+  { path: "updateJoueur/:id", component: UpdateJoueurComponent },  // Updated route path and component
+  { path: "rechercheParEquipe", component: RechercheParJoueurComponent },  // Updated route path and component
+  { path: "rechercheParNom", component: RechercheParNomComponent },
+  { path: "listeEquipes", component: ListeJoueursComponent },  // Updated route path and component
+  { path: 'login', component: LoginComponent },
+  { path: 'app-forbidden', component: ForbiddenComponent },
+  { path: "", redirectTo: "joueurs", pathMatch: "full" }  // Updated default route path
 ];
 
 @NgModule({

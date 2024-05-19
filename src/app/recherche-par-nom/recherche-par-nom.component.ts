@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Produit } from '../model/produit.model';
-import { ProduitService } from '../services/produit.service';
+import { Joueur } from '../model/joueur.model';  // Changement de Bateau à Joueur
+import { JoueurService } from '../services/joueur.service';  // Changement de BateauService à JoueurService
 
 @Component({
   selector: 'app-recherche-par-nom',
@@ -10,32 +10,31 @@ import { ProduitService } from '../services/produit.service';
 })
 export class RechercheParNomComponent implements OnInit {
 
-  nomProduit! : string;
-  produits!: Produit[];
-  allProduits!: Produit[];
+  nomJoueur!: string;  
+  joueurs!: Joueur[];  // Changement de Bateau à Joueur
+  allJoueurs!: Joueur[];  // Changement de Bateau à Joueur
   searchTerm!: string;
   
-  constructor(private produitService : ProduitService) { }
+  constructor(private joueurService : JoueurService) { }  
 
   ngOnInit(): void {
-    this.produitService.listeProduit().subscribe(prods => {
-      console.log(prods);
-      this.produits = prods;
-      });
-      
+    this.joueurService.listeJoueurs().subscribe((joueurs: Joueur[]) => { 
+      console.log(joueurs);
+      this.joueurs = joueurs;  
+      this.allJoueurs = joueurs; 
+    });
   }
 
-  rechercherProds(){
-    this.produitService.rechercherParNom(this.nomProduit).
-    subscribe(prods => {
-      console.log(prods);
-      this.produits=prods;});
+  rechercherJoueurs() {  
+    this.joueurService.rechercherParNom(this.nomJoueur).subscribe((joueurs: Joueur[]) => { 
+      console.log(joueurs);
+      this.joueurs = joueurs;
+    });
   }
 
-  onKeyUp(filterText : string){
-    this.produits = this.allProduits.filter(item =>
-    item.nomProduit.toLowerCase().includes(filterText));
-    }
-    
-
+  onKeyUp(filterText: string) {
+    this.joueurs = this.allJoueurs.filter(joueur =>
+      joueur.nomJoueur.toLowerCase().includes(filterText)  
+    );
+  }
 }

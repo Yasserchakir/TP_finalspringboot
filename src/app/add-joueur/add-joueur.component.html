@@ -1,0 +1,36 @@
+<div class="container">
+    <div>
+        <h2>Ajouter un Joueur :</h2>
+    </div>
+    <form>
+        <div hidden class="col-sm-2 col-md-2 col-lg-2">
+            <label>ID Joueur</label>
+            <input type="text" [(ngModel)]="newJoueur.id" name="idJoueur" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Nom Joueur</label>
+            <input type="text" [(ngModel)]="newJoueur.nom" name="nomJoueur" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Age</label>
+            <input type="number" [(ngModel)]="newJoueur.age" name="ageJoueur" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Date de Naissance</label>
+            <input type="date" [(ngModel)]="newJoueur.dateNaissance" name="dateNaissance" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Nationalité</label>
+            <input type="text" [(ngModel)]="newJoueur.nationalite" name="nationalite" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Position</label>
+            <input type="text" [(ngModel)]="newJoueur.position" name="position" class="form-control">
+        </div>
+        <!-- Ajoutez d'autres champs selon vos besoins -->
+
+        <div class="mt-2">
+            <button type="submit" (click)="addJoueur()" class="btn btn-success">Ajouter</button>
+        </div>
+    </form>
+</div>

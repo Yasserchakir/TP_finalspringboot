@@ -1,11 +1,13 @@
 <div class="container">
-
-    <form class="form-inline">
-        <div class="form-group mx-sm-3 mb-2 mt-2 ">
-            <label>Nom Joueur en tapant</label>
-            <input #nom [(ngModel)]="searchTerm" name="searchTerm" class="form-control" >
-        </div>
-    </form>
+    <div class="col-sm-4 col-md-4 col-lg-4 mb-4"> 
+        <label>Equipes</label> 
+        <select class="form-control form-control-lg" id="idCat" name="idCat"
+         [(ngModel)]="equipes" (change)="onChange()">
+          <option *ngFor="let equipe of equipes" value="{{equipe.idEquipe}}">
+               {{equipe.nomEquipe}} 
+         </option>
+    </select> 
+   </div>
 
     <div class="card shadow mb-4">
         <div class="card-body">
@@ -13,7 +15,7 @@
                 <thead>
                     <tr> <th>Id</th><th>Nom</th> <th>Prix</th>  <th>Date Création</th><th>Equipe</th> </tr>
                 </thead>
-                <tbody *ngFor="let joueur of joueurs | filter:searchTerm">
+                <tbody *ngFor="let joueur of joueurs">
                     <tr>
                         <td>{{joueur.idJoueur}}</td>
                         <td>{{joueur.nomJoueur}}</td>

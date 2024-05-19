@@ -1,41 +1,31 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { ProduitsComponent } from './produits/produits.component';
-import { AddProduitComponent } from './add-produit/add-produit.component';
+import { RouterModule } from '@angular/router'; // Importez RouterModule
 import { FormsModule } from '@angular/forms';
-import { UpdateProduitComponent } from './update-produit/update-produit.component';
 import { HttpClientModule } from '@angular/common/http';
-import { RechercheParCategorieComponent } from './recherche-par-categorie/recherche-par-categorie.component';
-import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.component';
-import { SearchFilterPipe } from './search-filter.pipe';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { ListeCategoriesComponent } from './liste-categories/liste-categories.component';
-import { UpdateCategorieComponent } from './update-categorie/update-categorie.component';
+import { AppComponent } from './app.component';
+import { JoueursComponent } from './joueur/joueur.component';
+import { AddJoueurComponent } from './add-joueur/add-joueur.component';
+import { ListeJoueursComponent } from './liste-equipes/liste-equipes.component';
 import { LoginComponent } from './login/login.component';
-import { ForbiddenComponent } from './forbidden/forbidden.component';
+import { UpdateJoueurComponent } from '../path/to/update-joueur.component';  // Adjust the path
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProduitsComponent,
-    AddProduitComponent,
-    UpdateProduitComponent,
-    RechercheParCategorieComponent,
-    RechercheParNomComponent,
-    SearchFilterPipe,
-    ListeCategoriesComponent,
-    UpdateCategorieComponent,
+    JoueursComponent,
+    AddJoueurComponent,
     LoginComponent,
-    ForbiddenComponent
+    ListeJoueursComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    Ng2SearchPipeModule
+    RouterModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
